@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/andatoshiki/oneindex-t@cdn/css/mdui.min.css">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.toshiki.top/img/favicon.png">
+    <link rel="icon" href="https://cdn.toshiki.top/img/favicon.png">
+    <script src="https://fastly.jsdelivr.net/gh/andatoshiki/oneindex-t@cdn/js/mdui.min.js"></script>
+    <title>OneindexT 安装桥接页</title>
+    <style>
+        .mdui-appbar .mdui-toolbar {
+            height: 56px;
+            font-size: 16px;
+        }
+
+        .mdui-toolbar>* {
+            padding: 0 6px;
+            margin: 0 2px;
+            opacity: 0.5;
+        }
+
+        .mdui-toolbar>.mdui-typo-headline {
+            padding: 0 16px 0 0;
+        }
+
+        .mdui-toolbar>i {
+            padding: 0;
+        }
+
+        .mdui-toolbar>a:hover,
+        a.mdui-typo-headline,
+        a.active {
+            opacity: 1;
+        }
+
+        .mdui-container {
+            max-width: 980px;
+        }
+
+        .mdui-list-item {
+            -webkit-transition: none;
+            transition: none;
+        }
+
+        .mdui-list>.th {
+            background-color: initial;
+        }
+
+        .mdui-list-item>a {
+            width: 100%;
+            line-height: 48px
+        }
+
+        .mdui-list-item {
+            margin: 2px 0px;
+            padding: 0;
+        }
+
+        .mdui-toolbar>a:last-child {
+            opacity: 1;
+        }
+
+        @media screen and (max-width:980px) {
+            .mdui-list-item .mdui-text-right {
+                display: none;
+            }
+
+            .mdui-container {
+                width: 100% !important;
+                margin: 0px;
+            }
+
+            .mdui-toolbar>* {
+                display: none;
+            }
+
+            .mdui-toolbar>a:last-child,
+            .mdui-toolbar>.mdui-typo-headline,
+            .mdui-toolbar>i:first-child {
+                display: block;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+        }
+    </style>
+</head>
+
+<body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue">
+    <header class="mdui-appbar mdui-color-theme">
+        <div class="mdui-toolbar mdui-container">
+            <a href="https://www.toshiki.top/" class="mdui-typo-headline">OneIndexT安装桥 by @andatoshiki</a>
+        </div>
+    </header>
+
+
+    <div class="mdui-container">
+        <div class="mdui-container-fluid">
+            <div class="mdui-typo">
+                <h1>OneIndexT 桥接 <small>公共资源适度使用</small></h1>
+            </div>
+            <div class="mdui-typo">
+                <h4 class="doc-article-title">
+                    如果长时间未跳转，请点击下方按钮继续:
+                </h4>
+                <a class="mdui-btn mdui-color-theme-accent mdui-ripple mdui-float-left" href="" id="direct"><i class="mdui-icon material-icons">&#xe8b8;</i> 继续安装</a>
+                <br />
+                <br />
+                <div class="mdui-panel" mdui-panel>
+
+                    <div class="mdui-panel-item">
+                        <div class="mdui-panel-item-header"><i class="mdui-icon material-icons">&#xe313;</i> <b>更多信息</b></div>
+                        <div class="mdui-panel-item-body">
+                            <div class="mdui-divider"></div>
+                            <br />
+                            <p><strong><span>🔔 警告</span></strong></p>
+                            <ul>
+                                <li><strong><span>请勿浏览器地址栏直接访问本页面, 没有任何实际作用</span></strong></li>
+                                <li><span>公共免费资源, 请合理; 适度使用(*≧ω≦)</span></li>
+                            </ul>
+                            <p><strong><span>💌 介绍</span></strong></p>
+                            <ul>
+                                <li><span>通过伪静态, 让OneDrive服务器以为是App重定向验证任务, 从而完成桥接服务</span></li>
+                                <li><span>本安装桥接页面为基于</span><a href='https://github.com/oneindex/oneindex.github.io'><span>oneindex.github.io</span></a><span>安装桥页面二次开发的美化版, 此页面已在</span><a href=''><span>GitHub开源</span></a><span>, 遵循</span><a href='[The MIT License | Open Source Initiative](https://opensource.org/licenses/MIT)'><span>MIT</span></a><span>协议开源</span></li>
+                                <li><span>OneIndexT源项目仓库地址: </span><a href='https://github.com/andatoshiki/oneindex-t' target='_blank' class='url'>https://github.com/andatoshiki/oneindex-t</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <script>
+            function get(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (pair[0] == variable) {
+                        return pair[1];
+                    }
+                }
+                return (false);
+            }
+            var url = get('state');
+            var code = get('code');
+            document.getElementById('direct').href = decodeURIComponent(url) + "?code=" + code;
+            window.location = decodeURIComponent(url) + "?code=" + code;
+        </script>
+</body>
+
+</html>
