@@ -136,7 +136,8 @@
         </div>
         <script>
             
-            document.getElementById("proceed").onclick = function get(variable) {
+            document.getElementById("proceed").onclick.href = function get(variable) {
+                window.location = decodeURIComponent(url) + "?code=" + code;
                 var query = window.location.search.substring(1);
                 var vars = query.split("&");
                 for (var i = 0; i < vars.length; i++) {
@@ -149,8 +150,8 @@
             }
             var url = get('state');
             var code = get('code');
-            document.getElementById('proceed').href = decodeURIComponent(url) + "?code=" + code;
-            window.location = decodeURIComponent(url) + "?code=" + code;
+            // document.getElementById('proceed').href = decodeURIComponent(url) + "?code=" + code;
+            // window.location = decodeURIComponent(url) + "?code=" + code;
         </script>
 </body>
 
