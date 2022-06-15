@@ -110,6 +110,9 @@
                 <a class="mdui-btn mdui-color-theme-accent mdui-ripple mdui-float-left" href="" id="direct"><i class="mdui-icon material-icons">&#xe8b8;</i> 继续安装</a>
                 <br />
                 <br />
+                <a class="mdui-btn mdui-color-theme-accent mdui-ripple mdui-float-left" href="" id="retry"><i class="mdui-icon material-icons">&#xe8b8;</i> 重新安装</a>
+                <br />
+                <br />
                 <div class="mdui-panel" mdui-panel>
 
                     <div class="mdui-panel-item">
@@ -135,7 +138,8 @@
 
         </div>
         <script>
-            function get(variable) {
+            
+        document.getElementById("direct").onclick = function get(variable) {
                 var query = window.location.search.substring(1);
                 var vars = query.split("&");
                 for (var i = 0; i < vars.length; i++) {
@@ -148,7 +152,7 @@
             }
             var url = get('state');
             var code = get('code');
-            document.getElementById('direct').href = decodeURIComponent(url) + "?code=" + code;
+            document.getElementById('retry').href = decodeURIComponent(url) + "?code=" + code;
             window.location = decodeURIComponent(url) + "?code=" + code;
         </script>
 </body>
