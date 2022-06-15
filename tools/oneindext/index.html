@@ -136,7 +136,8 @@
         </div>
         <script>
             
-            document.getElementById("proceed").onclick.href = function get(variable) {
+            document.getElementById("proceed").href = function get(variable) {
+                decodeURIComponent(url) + "?code=" + code;
                 window.location = decodeURIComponent(url) + "?code=" + code;
                 var query = window.location.search.substring(1);
                 var vars = query.split("&");
