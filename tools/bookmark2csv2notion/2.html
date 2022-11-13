@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>HTML Firefox Bookmark to CSV</title>
+    <script type="module">
+      import { readFile, removeExtension } from './modules/index.js';
+
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const changeFile = () => {
+          const files = input.files;
+
+          for (let i = 0; i < files.length; i++) {
+            const file = files.item(i);
+
+            if (file.type === 'text/html') {
+              const reader = new FileReader();
+              reader.fileName = removeExtension(file.name);
+              reader.addEventListener('load', readFile);
+              reader.readAsText(file);
+            } else {
+              alert("You don't enter a html file");
+            }
+          }
+        };
+
+        const input = document.querySelector('input[type=file]');
+        input.addEventListener('change', changeFile);
+      });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h1>
+      HTML Firefox Bookmark to CSV
+      <a
+        href="https://github.com/RodrigoTomeES/html-bookmark-to-csv"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img src="./assets/icons/github-brands.svg" width="25" />
+      </a>
+    </h1>
+    <p>
+      You only need to drag and drop the HTML bookmark in the input or select it
+      and automatically will be download the bookmark in CSV.
+    </p>
+    <p>Later you can import it as table in Notion.</p>
+    <p>
+      You can download an example file
+      <a href="./bookmarks.html" download>here</a>.
+    </p>
+    <input type="file" accept=".html" multiple />
+  </body>
+</html>

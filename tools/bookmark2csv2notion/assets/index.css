@@ -1,0 +1,90 @@
+body.dark {
+  background-color: #202123;
+  color: #fff;
+}
+body.dark nav {
+  background-color: #26a69a;
+}
+body.dark .card {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+body.dark .btn {
+  background-color: #ee6f73;
+}
+body.dark .divider {
+  opacity: 0.2;
+}
+body.dark .sidenav {
+  background-color: #2d2d31;
+}
+body.dark .sidenav li a:not(.subheader) {
+  color: #89b2f5;
+}
+body.dark .sidenav li a:not(.subheader):hover {
+  background-color: #3b4043;
+}
+body.dark .sidenav li a.subheader {
+  color: #9aa0a6;
+}
+body.dark .sidenav li a .material-icons {
+  color: #9aa0a6;
+}
+body.dark .collection {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+body.dark .collection .collection-item {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+body.dark .page-footer {
+  background-color: #26a69a;
+}
+
+/* slim scroll bar for windows based web browsers - works on chrome, edge, and safari */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* scrolling handle */
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-divider-light);
+}
+
+/* handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-button-alt-hover-bg);
+}
+
+/* scrolling track/backgronund color */
+::-webkit-scrollbar-track {
+  background: var(--vp-button-alt-bg);
+}
+
+/* pumping heart style */
+.heart {
+  /* size of the heart */
+  font-size: 12px;
+  /* color of the heart */
+  color: rgba(255, 0, 0, 0.1);
+  animation: animation
+      /* the first one corresponds to heart pumping speed, the huger the slower*/
+      600ms 0ms infinite linear reverse
+}
+
+@keyframes animation {
+  from {
+      color: rgba(207, 40, 104, 0.1);
+  }
+
+  to {
+      color: rgb(241, 19, 104);
+  }
+}
+
+.caption {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+}

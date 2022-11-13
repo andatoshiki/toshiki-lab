@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>bookmark2csv2notion</title>
+    <link rel="stylesheet" href="./assets/index.css">
+    <script src="./assets/index.js"></script>
+    <link href='https://font.toshiki.dev/icon?family=Material+Icons' rel='stylesheet'>
+    <script src="https://jsd.toshiki.dev/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.toshiki.dev/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.toshiki.dev/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('.materialboxed').materialbox();
+        });
+        $('.dark-toggle').on('click', function() {
+            if ($(this).find('i').text() == 'brightness_4') {
+                $(this).find('i').text('brightness_high');
+            } else {
+                $(this).find('i').text('brightness_4');
+            }
+        });
+    </script>
+    <script type="module">
+        import {
+            readFile,
+            removeExtension
+        } from './modules/index.js';
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const changeFile = () => {
+                const files = input.files;
+
+                for (let i = 0; i < files.length; i++) {
+                    const file = files.item(i);
+
+                    if (file.type === 'text/html') {
+                        const reader = new FileReader();
+                        reader.fileName = removeExtension(file.name);
+                        reader.addEventListener('load', readFile);
+                        reader.readAsText(file);
+                    } else {
+                        alert("You don't enter a html file");
+                    }
+                }
+            };
+
+            const input = document.querySelector('input[type=file]');
+            input.addEventListener('change', changeFile);
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">bookmark2csv2notion</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="..">More tools</a></li>
+                    <li><a href="https://blog.toshiki.top/">My blog</a></li>
+                    <li><a href="https://github.com/andatoshiki/toshiki-lab/blob/master/apis/ms-graph-api-auth/index.html">Source Code</a></li>
+                    <!-- <li><a class="dark-toggle" href="#" onclick="localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'light' : 'dark'); localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')" title="Dark/light"><i class="material-icons left">brightness_4</i></a></li> -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="materialbox" class="scrollspy section container">
+
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Prerequisite</span>
+                    <p>
+                        With this website you can convert HTML Firefox bookmark to CSV this way you can import them into a Notion table.
+
+                        You can try with the file <code>bookmark.html</code> that are in the repo. This file has my own dev bookmarks.
+
+                        To use the website you only need to drag and drop the file in the input or select it and automatically will be download the bookmark in CSV.
+                    </p>
+                    <form action="#">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>Upload</span>
+                                <input type="file" multiple>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                            </div>
+                        </div>
+                    </form>
+
+                    <img class="responsive-img materialboxed z-depth-3" data-caption="A picture of a way with a group of" src="https://r2.toshiki.dev/image/Untitled.png">
+                    <p class="caption">123123123</p>
+
+                </div>
+            </div>
+    </main>
+
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2022-present 👋 <a class="grey-text text-lighten-3" href="mailto:hello@toshiki.dev"><code>hello@toshiki.dev</code></a>
+            </div>
+        </div>
+
+
+        <div class="fixed-action-btn">
+            <a class="waves-effect waves-light btn-floating btn-large pink dark-toggle" dark-toggle" href="#" onclick="localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'light' : 'dark'); localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')" title="Dark/light"><i class="large material-icons">brightness_4</i></a>
+        </div>
+    </footer>
+</body>
+
+</html>
